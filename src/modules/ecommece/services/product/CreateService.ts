@@ -23,9 +23,8 @@ class CreateService {
     }
     data.code = await this.counterRepository.getNextCode('productCode');
     data.sku = generateSKU({
-      tipo: data.type,
-      size: data.size ,
-      cor: data.color,
+      type: data.type,
+      genero: data.genero ,
       codigo: data.code,
     })
     const created = await this.repository.create(data);

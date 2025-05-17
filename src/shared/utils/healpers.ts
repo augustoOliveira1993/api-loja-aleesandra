@@ -251,20 +251,18 @@ export function getDiffJson(
 }
 
 export function generateSKU({
-  tipo,
-  cor,
-  size,
+  type,
+  genero,
   codigo,
   categoria = 'AMI',
 }: {
-  tipo: string;
-  cor: string;
-  size: string;
+  type: string;
+  genero: string;
   codigo: number;
   categoria?: string;
 }): string {
-  const tipoAbrev = tipo.substring(0, 4).toUpperCase();
-  const corAbrev = cor.substring(0, 3).toUpperCase();
+  const tipoAbrev = type.substring(0, 4).toUpperCase();
+  const generoAbrev = genero.substring(0, 3).toUpperCase();
   const codStr = codigo.toString().padStart(3, '0');
-  return `${categoria}-${tipoAbrev}-${corAbrev}-${size}-${codStr}`;
+  return `${categoria}-${tipoAbrev}-${generoAbrev}-${codStr}`;
 }

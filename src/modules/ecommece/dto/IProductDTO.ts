@@ -7,11 +7,10 @@ export interface IProductDTO {
   sku: string;
   category: string;
   type: string;
-  color: string;
-  size: string;
+  genero: string;
   stock: number;
   base_price: number;
-  tabela_preco: string;
+  price_tables: string;
   images: string[]
   active: boolean;
 }

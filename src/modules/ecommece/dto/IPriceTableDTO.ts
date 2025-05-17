@@ -2,8 +2,9 @@ import { Document } from 'mongoose';
 
 export interface IPriceTableDTO {
   name?: string;
-  roles?: string[];
-  permissao_grupos?: string[];
+  description?: string;
+  product?: string;
+  price: number;
 }
 
 export interface IPriceTableDocument extends IPriceTableDTO, Document {}
