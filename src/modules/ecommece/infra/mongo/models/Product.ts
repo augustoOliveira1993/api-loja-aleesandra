@@ -14,7 +14,7 @@ const blockSchema: Schema = new Schema(
     code: { type: Number, required: true, unique: true }, // Código incremental para SKU
     sku: { type: String, required: true, unique: true }, // SKU gerado automaticamente
 
-    categoryId: {
+    category: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Category',
       required: true,

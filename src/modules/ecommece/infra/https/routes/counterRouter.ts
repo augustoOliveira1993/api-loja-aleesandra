@@ -1,11 +1,11 @@
 import { Router } from 'express';
-import PermissaoGrupoController from '@modules/users/infra/https/controllers/PermissaoGrupo.controller';
 import middleware from '@modules/users/infra/https/middleware';
+import CounterController from '../controllers/CounterController';
 
-const permissaoGruposRouter = Router();
-const controller = new PermissaoGrupoController();
+const counterRouter = Router();
+const controller = new CounterController();
 
-permissaoGruposRouter.use((req, res, next) => {
+counterRouter.use((req, res, next) => {
   res.header(
     'Access-Control-Allow-Headers',
     'x-access-token, Origin, Content-Type, Accept',
@@ -13,34 +13,34 @@ permissaoGruposRouter.use((req, res, next) => {
   next();
 });
 
-permissaoGruposRouter.post(
+counterRouter.post(
   '/',
   [middleware.authJwt.verifyToken],
   controller.create,
 );
 
-permissaoGruposRouter.get(
+counterRouter.get(
   '/',
   [middleware.authJwt.verifyToken],
   controller.findAll,
 );
 
-permissaoGruposRouter.get(
+counterRouter.get(
   '/:id',
   [middleware.authJwt.verifyToken],
   controller.findById,
 );
 
-permissaoGruposRouter.put(
+counterRouter.put(
   '/:id',
   [middleware.authJwt.verifyToken],
   controller.update,
 );
 
-permissaoGruposRouter.delete(
+counterRouter.delete(
   '/:id',
   [middleware.authJwt.verifyToken],
   controller.delete,
 );
 
-export default permissaoGruposRouter;
+export default counterRouter;

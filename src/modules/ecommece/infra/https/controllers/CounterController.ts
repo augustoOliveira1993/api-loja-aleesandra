@@ -1,19 +1,17 @@
-import { Request, Response, NextFunction } from 'express';
+import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 
-import FindAllService from '@modules/users/services/permissao/FindAll.service';
-import CreateService from '@modules/users/services/permissao/Create.service';
-import DeleteService from '@modules/users/services/permissao/Delete.service';
-import FindByIdService from '@modules/users/services/permissao/FindById.service';
-import UpdateService from '@modules/users/services/permissao/Update.service';
+import FindAllService from '@modules/ecommece/services/counter/FindAllService';
+import CreateService from '@modules/ecommece/services/counter/CreateService';
+import DeleteService from '@modules/ecommece/services/counter/DeleteService';
+import FindByIdService from '@modules/ecommece/services/counter/FindByIdService';
+import UpdateService from '@modules/ecommece/services/counter/UpdateService';
 import { logger } from '@shared/utils/logger';
 
-export default class RoleController {
+export default class CounterController {
   public async findAll(req: Request, res: Response): Promise<Response> {
     const service = container.resolve(FindAllService);
-    const result = await service.execute({
-      search: req.query.search as string | '',
-    });
+    const result = await service.execute(req.query);
     return res.json(result);
   }
 

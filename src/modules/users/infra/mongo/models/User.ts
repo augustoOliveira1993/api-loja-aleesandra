@@ -1,7 +1,7 @@
 import mongoose, { Schema } from 'mongoose';
-import { IUserDocument } from '@modules/users/dto/IUserDTO';
+import { IUsuarioDocument } from '@modules/users/dto/IUsuarioDTO';
 
-const UserSchema: Schema = new Schema(
+const UsuarioSchema: Schema = new Schema(
   {
     username: { type: String, required: true },
     email: { type: String, required: true },
@@ -19,4 +19,4 @@ const UserSchema: Schema = new Schema(
   },
 );
 
-export const User = mongoose.model<IUserDocument>('Usuario', UserSchema);
+export const Usuario = mongoose.model<IUsuarioDocument>('Usuario', UsuarioSchema);

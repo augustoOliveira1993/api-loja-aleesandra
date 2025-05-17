@@ -1,7 +1,7 @@
 import { Document } from 'mongoose';
 
 export interface IProductDTO {
-  code: string;
+  code: number;
   name: string;
   description: string;
   sku: string;

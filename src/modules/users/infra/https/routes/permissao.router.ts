@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import PermissaoController from '@modules/users/infra/https/controllers/Permissao.controller';
-import middleware from '../middleware';
+import middleware from '@modules/users/infra/https/middleware';
 import { cacheMiddleware } from '@middleware/cacheMiddleware';
 
 const permissoesRouter = Router();

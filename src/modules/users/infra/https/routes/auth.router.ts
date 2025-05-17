@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import UsersController from '@modules/users/infra/https/controllers/UsersController';
-import middleware from '../middleware';
+import middleware from '@modules/users/infra/https/middleware';
 
 const router = Router();
 const controller = new UsersController();

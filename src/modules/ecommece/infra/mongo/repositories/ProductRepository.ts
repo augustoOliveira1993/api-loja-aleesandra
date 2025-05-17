@@ -5,12 +5,20 @@ import {
   IProductDocument,
 } from '@modules/ecommece/dto/IProductDTO';
 import IProductRepository from '@modules/ecommece/repositories/IProductRepository';
+import { IModelPopulated } from '@shared/types/global';
 
 export default class ProductRepository implements IProductRepository {
   private model: Model<IProductDocument>;
+  private modelPopulate: IModelPopulated[];
 
   constructor() {
     this.model = Product;
+    this.modelPopulate = [
+      {
+        path: 'category',
+        select: '-__v',
+      }
+    ]
   }
 
   async create(data: IProductDTO): Promise<IProductDocument> {
@@ -29,7 +37,7 @@ export default class ProductRepository implements IProductRepository {
     if (limit) {
       mongooseQuery.limit(limit);
     }
-    return await mongooseQuery.exec();
+    return await mongooseQuery.populate(this.modelPopulate).exec()
   }
 
   async update(
@@ -44,7 +52,7 @@ export default class ProductRepository implements IProductRepository {
   }
 
   async findById(id: string): Promise<IProductDocument | null> {
-    return await this.model.findById(id);
+    return await this.model.findById(id).populate(this.modelPopulate);
   }
 
   async findOne(
@@ -55,7 +63,7 @@ export default class ProductRepository implements IProductRepository {
     if (sortBy) {
       mongooseQuery.sort({ [sortBy]: order === 'asc' ? 1 : -1 });
     }
-    return await mongooseQuery.exec();
+    return await mongooseQuery.populate(this.modelPopulate).exec();
   }
 
   async count(query: QueryOptions<IProductDTO>): Promise<number> {

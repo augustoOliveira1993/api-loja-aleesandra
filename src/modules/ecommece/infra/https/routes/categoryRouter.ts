@@ -1,11 +1,11 @@
 import { Router } from 'express';
-import PermissaoGrupoController from '@modules/users/infra/https/controllers/PermissaoGrupo.controller';
-import middleware from '../middleware';
+import middleware from '@modules/users/infra/https/middleware';
+import CategoryController from '../controllers/CategoryController';
 
-const permissaoGruposRouter = Router();
-const controller = new PermissaoGrupoController();
+const categoryRouter = Router();
+const controller = new CategoryController();
 
-permissaoGruposRouter.use((req, res, next) => {
+categoryRouter.use((req, res, next) => {
   res.header(
     'Access-Control-Allow-Headers',
     'x-access-token, Origin, Content-Type, Accept',
@@ -13,34 +13,34 @@ permissaoGruposRouter.use((req, res, next) => {
   next();
 });
 
-permissaoGruposRouter.post(
+categoryRouter.post(
   '/',
   [middleware.authJwt.verifyToken],
   controller.create,
 );
 
-permissaoGruposRouter.get(
+categoryRouter.get(
   '/',
   [middleware.authJwt.verifyToken],
   controller.findAll,
 );
 
-permissaoGruposRouter.get(
+categoryRouter.get(
   '/:id',
   [middleware.authJwt.verifyToken],
   controller.findById,
 );
 
-permissaoGruposRouter.put(
+categoryRouter.put(
   '/:id',
   [middleware.authJwt.verifyToken],
   controller.update,
 );
 
-permissaoGruposRouter.delete(
+categoryRouter.delete(
   '/:id',
   [middleware.authJwt.verifyToken],
   controller.delete,
 );
 
-export default permissaoGruposRouter;
+export default categoryRouter;

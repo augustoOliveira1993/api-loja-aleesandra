@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import RoleController from '@modules/users/infra/https/controllers/Role.controller';
-import middleware from '../middleware';
+import middleware from '@modules/users/infra/https/middleware';
 import { cacheMiddleware } from '@middleware/cacheMiddleware';
 
 const rolesRouter = Router();

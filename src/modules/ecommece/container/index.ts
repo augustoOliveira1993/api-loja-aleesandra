@@ -1,36 +1,29 @@
 import { container } from 'tsyringe';
 
-import IUsersRepository from '@modules/users/repositories/IUsersRepository';
-import UsersRepository from '@modules/users/infra/mongo/repositories/UsersRepository';
+import ICategoryRepository from '@modules/ecommece/repositories/ICategoryRepository';
+import CategoryRepository from '@modules/ecommece/infra/mongo/repositories/CategoryRepository';
 
-import IBlocksRepository from '@modules/users/repositories/IBlocksRepository';
-import BlocksRepository from '@modules/users/infra/mongo/repositories/BlocksRepository';
-import IRoleRepository from '@modules/users/repositories/IRoleRepository';
-import RoleRepository from '@modules/users/infra/mongo/repositories/RoleRepository';
+import IPriceTableRepository from '@modules/ecommece/repositories/IPriceTableRepository';
+import PriceTableRepository from '@modules/ecommece/infra/mongo/repositories/PriceTableRepository';
+import ICounterRepository from '@modules/ecommece/repositories/ICounterRepository';
+import CounterRepository from '@modules/ecommece/infra/mongo/repositories/CounterRepository';
 
-import IPermissaoRepository from '@modules/users/repositories/IPermissaoRepository';
-import PermissaoRepository from '@modules/users/infra/mongo/repositories/PermissaoRepository';
+import IProductRepository from '@modules/ecommece/repositories/IProductRepository';
+import ProductRepository from '@modules/ecommece/infra/mongo/repositories/ProductRepository';
 
-import IPermissaoGrupoRepository from '@modules/users/repositories/IPermissaoGrupoRepository';
-import PermissaoGrupoRepository from '@modules/users/infra/mongo/repositories/PermissaoGrupoRepository';
-
-container.registerSingleton<IUsersRepository>(
-  'UsersRepository',
-  UsersRepository,
+container.registerSingleton<ICategoryRepository>(
+  'CategoryRepository',
+  CategoryRepository,
 );
 
-container.registerSingleton<IBlocksRepository>(
-  'BlocksRepository',
-  BlocksRepository,
+container.registerSingleton<IPriceTableRepository>(
+  'PriceTableRepository',
+  PriceTableRepository,
 );
 
-container.registerSingleton<IPermissaoRepository>(
-  'PermissaoRepository',
-  PermissaoRepository,
+container.registerSingleton<IProductRepository>(
+  'ProductRepository',
+  ProductRepository,
 );
 
-container.registerSingleton<IPermissaoGrupoRepository>(
-  'PermissaoGrupoRepository',
-  PermissaoGrupoRepository,
-);
-container.registerSingleton<IRoleRepository>('RoleRepository', RoleRepository);
+container.registerSingleton<ICounterRepository>('CounterRepository', CounterRepository);

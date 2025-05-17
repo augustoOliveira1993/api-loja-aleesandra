@@ -10,7 +10,6 @@ import {
   ICategoryDTO,
   ICategoryDocument,
   ICategoryFindAllResponse,
-  IResquestQuery,
 } from '@modules/ecommece/dto/ICategoryDTO';
 import ICategoryRepository from '@modules/ecommece/repositories/ICategoryRepository';
 import { logger } from '@shared/utils/logger';

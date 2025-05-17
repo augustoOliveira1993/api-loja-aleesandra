@@ -57,7 +57,7 @@ export class AppServer {
   private errorMiddleware() {
     this.server.use(
       (error: Error, request: Request, response: Response, _: NextFunction) => {
-        // console.log('errorMiddleware', error);
+        console.log('errorMiddleware', error);
         let ipRequest =
           request.ip?.split(':').length === 3
             ? 'local'
