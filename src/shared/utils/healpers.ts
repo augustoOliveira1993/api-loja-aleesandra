@@ -249,3 +249,22 @@ export function getDiffJson(
 
   return diff;
 }
+
+export function generateSKU({
+  tipo,
+  cor,
+  tamanho,
+  codigo,
+  categoria = 'AMI',
+}: {
+  tipo: string;
+  cor: string;
+  tamanho: 'P' | 'M' | 'G';
+  codigo: number;
+  categoria: string;
+}): string {
+  const tipoAbrev = tipo.substring(0, 4).toUpperCase();
+  const corAbrev = cor.substring(0, 3).toUpperCase();
+  const codStr = codigo.toString().padStart(3, '0');
+  return `${categoria}-${tipoAbrev}-${corAbrev}-${tamanho}-${codStr}`;
+}
