@@ -1,7 +1,7 @@
 import { container } from 'tsyringe';
 
 import IUsersRepository from '@modules/users/repositories/IUsersRepository';
-import UsersRepository from '@modules/users/infra/mongo/repositories/UsersRepository';
+import UsersRepository from '@modules/users/infra/mongo/repositories/UsuarioRepository';
 
 import IBlocksRepository from '@modules/users/repositories/IBlocksRepository';
 import BlocksRepository from '@modules/users/infra/mongo/repositories/BlocksRepository';

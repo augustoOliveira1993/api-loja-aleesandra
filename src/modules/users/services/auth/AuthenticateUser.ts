@@ -3,9 +3,9 @@ import bcrypt from 'bcryptjs';
 import config from '@config/auth.config';
 import { AppError } from '@shared/errors/AppError';
 
-import { User } from '@modules/users/infra/mongo/models/User';
+import { Usuario} from '@modules/users/infra/mongo/models/Usuario';
 import BlockService from '../block/BlockUser';
-import UserRepository from '../../infra/mongo/repositories/UsersRepository';
+import UserRepository from '../../infra/mongo/repositories/UsuarioRepository';
 import IBlocksRepository from '../../repositories/IBlocksRepository';
 import IRoleRepository from '@modules/users/repositories/IRoleRepository';
 import ActiveDirectory from 'activedirectory';
@@ -66,7 +66,7 @@ class AuthService {
             let roleIdDefault = await this.roleRepository.findByName('Usuário');
 
             if (!user) {
-              user = await User.create({
+              user = await Usuario.create({
                 email,
                 password: bcrypt.hashSync(password, 8),
                 roles: [roleIdDefault?._id as string],

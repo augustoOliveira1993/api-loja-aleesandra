@@ -1,6 +1,6 @@
 import bcrypt from 'bcryptjs';
 import { injectable, inject } from 'tsyringe';
-import { IUserDTO } from '../../dto/IUserDTO';
+import { IUserDTO } from '../../dto/IUsuarioDTO';
 import IUsersRepository from '../../repositories/IUsersRepository';
 import { BadRequestError } from '@shared/errors/AppError';
 import { logger } from '@shared/utils/logger';

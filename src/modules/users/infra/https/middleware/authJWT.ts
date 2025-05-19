@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import config from '@config/auth.config';
 import jwt from 'jsonwebtoken';
-import { User } from '@modules/users/infra/mongo/models/User';
+import { Usuario} from '@modules/users/infra/mongo/models/Usuario';
 import { Role } from '@modules/users/infra/mongo/models/Role';
 import { IRoleDocument } from '@modules/users/dto/IRoleDTO';
 
@@ -41,7 +41,7 @@ export const isAdmin = (
   res: Response,
   next: NextFunction,
 ): void => {
-  User.findById(req.userId, (err: any, user: { roles: any }) => {
+  Usuario.findById(req.userId, (err: any, user: { roles: any }) => {
     if (err) {
       res.status(500).send({ message: err });
       return;
@@ -75,7 +75,7 @@ export const isModerator = (
   res: Response,
   next: NextFunction,
 ): void => {
-  User.findById(req.userId, (err: any, user: { roles: any }) => {
+  Usuario.findById(req.userId, (err: any, user: { roles: any }) => {
     if (err) {
       res.status(500).send({ message: err });
       return;

@@ -17,8 +17,18 @@ export default class ProductRepository implements IProductRepository {
       {
         path: 'category',
         select: '-__v',
+      },
+      {
+        path: 'price_tables',
+        select: '-__v'
       }
     ]
+  }
+  async addPriceTable(id: string, priceTableId: string): Promise<UpdateResult | null> {
+    return await this.model.updateOne({ _id: id }, { $push: { price_tables: priceTableId } });
+  }
+  async removePriceTable(id: string, priceTableId: string): Promise<UpdateResult | null> {
+    return this.model.updateOne({ _id: id }, { $pull: { price_tables: priceTableId } });
   }
 
   async create(data: IProductDTO): Promise<IProductDocument> {

@@ -13,4 +13,6 @@ export default interface IProductRepository {
   updateMany(query: QueryOptions<IProductDTO>, data: IProductDTO): Promise<UpdateResult>;
   delete(id: string): Promise<IProductDocument | null>;
   count(query?: QueryOptions<IProductDTO>): Promise<number>;
+  addPriceTable(id: string, priceTableId: string): Promise<UpdateResult | null>;
+  removePriceTable(id: string, priceTableId: string): Promise<UpdateResult | null>;
 }

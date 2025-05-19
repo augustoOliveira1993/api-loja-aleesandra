@@ -1,10 +1,10 @@
 import mongoose, { Model, Document, QueryOptions } from 'mongoose';
-import { User } from '@modules/users/infra/mongo/models/User';
+import { Usuario} from '@modules/users/infra/mongo/models/Usuario';
 import {
   IFindAllResponse,
   IUserDTO,
   IUserDocument,
-} from '@modules/users/dto/IUserDTO';
+} from '@modules/users/dto/IUsuarioDTO';
 import IUsersRepository from '@modules/users/repositories/IUsersRepository';
 import { IResquestQuery } from '@modules/users/dto/IRoleDTO';
 import { IModelPopulated } from '@globalTypes/global';
@@ -25,7 +25,7 @@ class UserRepository implements IUsersRepository {
   private modelPupulate: IModelPopulated[];
 
   constructor() {
-    this.model = User;
+    this.model = Usuario;
     this.modelPupulate = [
       {
         path: 'roles',

@@ -3,7 +3,7 @@ import {
   IResquestQuery,
   IUserDTO,
   IUserDocument,
-} from '@modules/users/dto/IUserDTO';
+} from '@modules/users/dto/IUsuarioDTO';
 import { QueryOptions } from 'mongoose';
 
 export default interface IUsersRepository {

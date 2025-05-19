@@ -1,6 +1,6 @@
 import { Document } from 'mongoose';
 
-export interface IUserDTO {
+export interface IUsuarioDTO {
   username: string;
   email: string;
   password?: string;
@@ -13,7 +13,7 @@ export interface IUserDTO {
   tempo_expiracao_token?: string;
 }
 
-export interface IUserDocument extends IUserDTO, Document {}
+export interface IUsuarioDocument extends IUsuarioDTO, Document {}
 
 export interface IDataBodyAddPermissions {
   permissaos: string[];
@@ -28,7 +28,7 @@ export interface IResquestQuery {
 }
 
 export interface IFindAllResponse {
-  data: IUserDTO[];
+  data: IUsuarioDTO[];
   total: number;
 }
 

@@ -13,5 +13,5 @@ export default interface ICounterRepository {
   updateMany(query: QueryOptions<ICounterDTO>, data: ICounterDTO): Promise<UpdateResult>;
   delete(id: string): Promise<ICounterDocument | null>;
   count(query?: QueryOptions<ICounterDTO>): Promise<number>;
-  getNextCode(name: 'productCode' |'categoryCode' | 'priceTableCode'): Promise<number>;
+  getNextCode(name: 'productCode' |'categoryCode' | 'priceTableCode'): Promise<number | undefined>;
 }

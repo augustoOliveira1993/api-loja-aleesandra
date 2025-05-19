@@ -17,7 +17,7 @@ export default class ProductController {
 
   public async create(req: Request, res: Response): Promise<Response> {
     const service = container.resolve(CreateService);
-    const result = await service.execute(req.body);
+    const result = await service.execute(req.body, req.files as Express.Multer.File[]);
 
     return res.json(result);
   }

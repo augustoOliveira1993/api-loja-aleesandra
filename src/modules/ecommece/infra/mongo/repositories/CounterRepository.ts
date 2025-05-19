@@ -18,9 +18,9 @@ export default class CounterRepository implements ICounterRepository {
     return await role.save();
   }
 
-  async getNextCode(name: 'productCode' |'categoryCode' | 'priceTableCode'): Promise<number> {
-    const couter = await this.model.findOneAndUpdate({ name }, { $inc: { seq: 1 } }, { new: true })
-    return couter?.seq || 0;
+  async getNextCode(name: 'productCode' |'categoryCode' | 'priceTableCode'): Promise<number | undefined> {
+    const couter = await this.model.findOneAndUpdate({ name }, { $inc: { seq: 1 } }, { new: true, upsert: true  })
+    return couter?.seq;
   }
 
   async findAll(query: QueryOptions<ICounterDTO>): Promise<ICounterDocument[]> {

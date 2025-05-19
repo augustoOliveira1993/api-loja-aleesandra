@@ -1,5 +1,5 @@
 import { injectable, inject } from 'tsyringe';
-import { IDataBodyRemoverRoles } from '../../dto/IUserDTO';
+import { IDataBodyRemoverRoles } from '../../dto/IUsuarioDTO';
 import { BadRequestError } from '@shared/errors/AppError';
 import IUsersRepository from '@modules/users/repositories/IUsersRepository';
 

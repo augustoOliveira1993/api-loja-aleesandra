@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { User } from '@modules/users/infra/mongo/models/User';
+import { Usuario} from '@modules/users/infra/mongo/models/Usuario';
 
 interface IReqBody {
   form: {
@@ -13,13 +13,13 @@ const ROLES = ['user', 'admin', 'moderator'];
 
 export const checkDuplicateUsernameOrEmail = async (req: Request<{}, {}, IReqBody>, res: Response, next: NextFunction) => {
   try {
-    const userByUsername = await User.findOne({ username: req.body.form.username }).exec();
+    const userByUsername = await Usuario.findOne({ username: req.body.form.username }).exec();
     if (userByUsername) {
       res.status(409).send({ message: "Failed! Username is already in use!" });
       return;
     }
 
-    const userByEmail = await User.findOne({ email: req.body.form.email }).exec();
+    const userByEmail = await Usuario.findOne({ email: req.body.form.email }).exec();
     if (userByEmail) {
       res.status(409).send({ message: "Failed! Email is already in use!" });
       return;

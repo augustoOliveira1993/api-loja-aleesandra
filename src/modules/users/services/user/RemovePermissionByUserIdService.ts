@@ -1,5 +1,5 @@
 import { injectable, inject } from 'tsyringe';
-import { IDataBodyAddPermissions } from '../../dto/IUserDTO';
+import { IDataBodyAddPermissions } from '../../dto/IUsuarioDTO';
 import IRoleRepository from '../../repositories/IRoleRepository';
 import { BadRequestError } from '@shared/errors/AppError';
 import IUsersRepository from '@modules/users/repositories/IUsersRepository';

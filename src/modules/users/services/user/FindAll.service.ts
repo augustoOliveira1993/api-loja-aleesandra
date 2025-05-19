@@ -1,6 +1,6 @@
 import { injectable, inject } from 'tsyringe';
 import IUsersRepository from '../../repositories/IUsersRepository';
-import { IResquestQuery, IUserDTO } from '@modules/users/dto/IUserDTO';
+import { IResquestQuery, IUserDTO } from '@modules/users/dto/IUsuarioDTO';
 import { QueryOptions } from 'mongoose';
 import IRoleRepository from '@modules/users/repositories/IRoleRepository';
 

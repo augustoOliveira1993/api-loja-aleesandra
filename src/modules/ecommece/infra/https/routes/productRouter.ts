@@ -1,6 +1,8 @@
 import { Router } from 'express';
 import ProductController from '../controllers/ProductController';
 import middleware from '@modules/users/infra/https/middleware';
+import multer from 'multer';
+import uploadConfig from '@config/upload';
 
 const productRouter = Router();
 const controller = new ProductController();
@@ -15,6 +17,7 @@ productRouter.use((req, res, next) => {
 
 productRouter.post(
   '/',
+  multer(uploadConfig).array('images'),
   [middleware.authJwt.verifyToken],
   controller.create,
 );

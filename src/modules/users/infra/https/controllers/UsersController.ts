@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import { container } from 'tsyringe';
 
 import BlocksRepository from '@modules/users/infra/mongo/repositories/BlocksRepository';
-import UsersRepository from '@modules/users/infra/mongo/repositories/UsersRepository';
+import UsersRepository from '@modules/users/infra/mongo/repositories/UsuarioRepository';
 
 import CreateUserService from '@modules/users/services/user/CreateUserService';
 import BlockService from '@modules/users/services/block/BlockUser';
